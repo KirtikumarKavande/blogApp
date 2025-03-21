@@ -2,26 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply min-h-screen;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.prose img {
+  @apply rounded-lg mx-auto;
+}
+
+.prose h2 {
+  @apply text-2xl font-bold mt-8 mb-4;
+}
+
+.prose p {
+  @apply mb-4;
+}
+
+.prose ul {
+  @apply list-disc pl-6 mb-4;
+}
+
+.prose ol {
+  @apply list-decimal pl-6 mb-4;
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: float 15s infinite;
+}
+
+.particle1 {
+  top: 20%;
+  left: 10%;
+  animation-duration: 20s;
+}
+
+.particle2 {
+  top: 60%;
+  left: 30%;
+  width: 100px;
+  height: 100px;
+  animation-delay: 5s;
+  animation-duration: 18s;
+}
+
+.particle3 {
+  top: 30%;
+  right: 10%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 10s;
+  animation-duration: 25s;
+}
+
+.transition-all {
+  transition: all 0.3s ease;
 }
